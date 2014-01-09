@@ -114,7 +114,7 @@ class Blender
           puts "I didn't understand you."
           start(ingredients)
         end
-      elsif repoonse == "n"
+      elsif response == "n"
         puts "no smoothie for you!"
       else
         puts "I didn't understand you"
