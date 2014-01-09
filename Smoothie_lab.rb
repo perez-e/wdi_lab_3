@@ -86,28 +86,52 @@ class Blender
   def turn_off
     @switch = "off"
   end
+
+  def start(ingredients)
+    puts "Do you have the ingredieints? [y/n]"
+    res = gets.chomp
+    if res == "y"
+      puts_ingredients = ingredients
+      puts "Turn on the blender? [y/n]"
+      response = gets.chomp
+      if response == "y"
+        turn_on
+        puts "ready to blend? [y/n]"
+        response_2 = gets.chomp
+        if response_2 == "y"
+            while @switch == "on"
+              blend
+              puts "Ready to turn off the blender? [y/n]"
+              response_3
+              if response_3 == "y"
+                turn_off
+                puts "Hooray, your smoothie is done."
+              end
+            end
+        elsif response_2 == "n"
+          puts "Okay no smoothie for you, and stay hungry forever and die!"
+        else
+          puts "I didn't understand you."
+          start
+        end
+      elsif repoonse == "n"
+        puts "no smoothie for you!"
+      else
+        puts "I didn't understand you"
+        start
+      end
+    elsif res == 'n'
+      puts "No smoothie for you!"
+    else
+      puts "I didn't understand you!"
+      start
+    end
  
 end
 
 # first exercise test
 puts blend(smoothie_ingredients)
 puts
+
 # second exercise test
-blender = Blender.new
-
-blender.blend
-
-blender.turn_on
-
-blender.blend
-
-blender.put_ingredients = smoothie_ingredients.keys
-
-blender.turn_off
-
-blender.put_ingredients = smoothie_ingredients.keys
-
-blender.turn_on
-
-puts blender.blend
-puts
+blender = Blender.new.start(smoothie_ingredients.keys)
