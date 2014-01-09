@@ -91,7 +91,7 @@ class Blender
     puts "Do you have the ingredieints? [y/n]"
     res = gets.chomp
     if res == "y"
-      puts_ingredients = ingredients
+      self.put_ingredients=(ingredients)
       puts "Turn on the blender? [y/n]"
       response = gets.chomp
       if response == "y"
@@ -100,9 +100,9 @@ class Blender
         response_2 = gets.chomp
         if response_2 == "y"
             while @switch == "on"
-              blend
+              puts blend
               puts "Ready to turn off the blender? [y/n]"
-              response_3
+              response_3 = gets.chomp
               if response_3 == "y"
                 turn_off
                 puts "Hooray, your smoothie is done."
@@ -112,20 +112,21 @@ class Blender
           puts "Okay no smoothie for you, and stay hungry forever and die!"
         else
           puts "I didn't understand you."
-          start
+          start(ingredients)
         end
       elsif repoonse == "n"
         puts "no smoothie for you!"
       else
         puts "I didn't understand you"
-        start
+        start(ingredients)
       end
     elsif res == 'n'
       puts "No smoothie for you!"
     else
       puts "I didn't understand you!"
-      start
+      start(ingredients)
     end
+  end
  
 end
 
