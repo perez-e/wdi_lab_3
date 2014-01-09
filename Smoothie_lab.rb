@@ -37,9 +37,8 @@ smoothie_ingredients = {
 # Be sure to remove the spaces, as we don't want any air bubbles in our smoothie!
  
 def blend(smoothie_ingredients)
-  ingredients = smoothie_ingredients.keys
   string_ingredients = ""
-  ingredients.each {|ingredient| string_ingredients << ingredient}
+  smoothie_ingredients.each_key {|ingredient| string_ingredients << ingredient}
   string_ingredients.delete(" ").split("").shuffle.join("")
 end
  
