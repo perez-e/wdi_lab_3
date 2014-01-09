@@ -51,7 +51,7 @@ end
 # Blend the the smoothie array
  
 class Blender
-
+  attr_reader :ingredients, :switch
   def initialize
     @ingredients=nil
     @switch = "off"
@@ -89,3 +89,26 @@ class Blender
   end
  
 end
+
+# first exercise test
+puts blend(smoothie_ingredients)
+puts
+# second exercise test
+blender = Blender.new
+
+blender.blend
+
+blender.turn_on
+
+blender.blend
+
+blender.put_ingredients = smoothie_ingredients.keys
+
+blender.turn_off
+
+blender.put_ingredients = smoothie_ingredients.keys
+
+blender.turn_on
+
+puts blender.blend
+puts
